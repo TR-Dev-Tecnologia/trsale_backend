@@ -1,0 +1,24 @@
+version: '3'
+
+#1-> docker-compose up -d
+#2-> docker exec -it web bash
+services:
+  backend_trsale:
+    build: .
+    container_name: backend_trsale
+    networks:
+      - node-network
+    environment:
+        - ASPNETCORE_URLS=https://+:443;http://+:5000
+        - ASPNETCORE_HTTPS_PORT=443
+    volumes:
+      - .:/app
+    tty: true
+    ports:
+      - "5000:5000"
+      - "5001:5001"
+      - "443:443"
+  
+networks:
+  node-network:
+    driver: bridge
