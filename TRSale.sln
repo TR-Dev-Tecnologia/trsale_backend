@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRSale.WebApi", "TRSale.WebApi\TRSale.WebApi.csproj", "{B075A550-7C8B-4E8D-9573-1798A911587A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRSale.WebApi", "TRSale.WebApi\TRSale.WebApi.csproj", "{5DFA2757-F7BF-43BA-8C61-07B9E23ECC98}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -14,9 +14,9 @@ Global
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B075A550-7C8B-4E8D-9573-1798A911587A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B075A550-7C8B-4E8D-9573-1798A911587A}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B075A550-7C8B-4E8D-9573-1798A911587A}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B075A550-7C8B-4E8D-9573-1798A911587A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5DFA2757-F7BF-43BA-8C61-07B9E23ECC98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5DFA2757-F7BF-43BA-8C61-07B9E23ECC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5DFA2757-F7BF-43BA-8C61-07B9E23ECC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5DFA2757-F7BF-43BA-8C61-07B9E23ECC98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
