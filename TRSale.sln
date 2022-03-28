@@ -5,6 +5,10 @@ VisualStudioVersion = 16.0.30114.105
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRSale.WebApi", "TRSale.WebApi\TRSale.WebApi.csproj", "{5DFA2757-F7BF-43BA-8C61-07B9E23ECC98}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRSale.Domain", "TRSale.Domain\TRSale.Domain.csproj", "{4CDC6D41-3F35-442B-B9A9-4599EB6037EF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRSale.Domain.Tests", "TRSale.Domain.Tests\TRSale.Domain.Tests.csproj", "{A72C79E3-30DE-477E-A57C-DFB16253ED3E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -18,5 +22,13 @@ Global
 		{5DFA2757-F7BF-43BA-8C61-07B9E23ECC98}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5DFA2757-F7BF-43BA-8C61-07B9E23ECC98}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5DFA2757-F7BF-43BA-8C61-07B9E23ECC98}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4CDC6D41-3F35-442B-B9A9-4599EB6037EF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4CDC6D41-3F35-442B-B9A9-4599EB6037EF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4CDC6D41-3F35-442B-B9A9-4599EB6037EF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4CDC6D41-3F35-442B-B9A9-4599EB6037EF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A72C79E3-30DE-477E-A57C-DFB16253ED3E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A72C79E3-30DE-477E-A57C-DFB16253ED3E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A72C79E3-30DE-477E-A57C-DFB16253ED3E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A72C79E3-30DE-477E-A57C-DFB16253ED3E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
