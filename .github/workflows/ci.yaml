@@ -1,0 +1,9 @@
+name: ci-workflow
+on: [push]
+jobs:
+  check-application:
+    runs-on: mcr.microsoft.com/dotnet/sdk:6.0
+    steps:
+      - uses: actions/checkout@v2
+      - run: dotnet test
+      - run: dotnet run --project .\TRSale.WebApi\TRSale.WebApi.csproj
