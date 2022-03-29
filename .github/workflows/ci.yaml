@@ -20,4 +20,4 @@ jobs:
       - name: Test
         run: dotnet test --no-restore --verbosity normal
       - name: run app
-        run: dotnet run --project .\TRSale.WebApi\TRSale.WebApi.csproj
+        run: dotnet run --project TRSale.WebApi\TRSale.WebApi.csproj
