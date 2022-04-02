@@ -30,7 +30,6 @@ namespace TRSale.Domain.Tests.Helpers
             criptText = CriptoHelper.DecryptString(criptText, key, keyIv);
             Assert.Equal(criptText, text);
 
-
             tsc.SetResult(true);
             await tsc.Task;
         }
