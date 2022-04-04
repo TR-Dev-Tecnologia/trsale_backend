@@ -1,0 +1,1 @@
+C:\Sistemas\TRSale\backend\.sonarqube\out\0
