@@ -28,7 +28,7 @@ namespace TRSale.Domain.Tests.Helpers
             Assert.NotEqual(criptText, text);
 
             criptText = CriptoHelper.DecryptString(criptText, key, keyIv);
-            Assert.NotEqual(criptText, text);
+            Assert.Equal(criptText, text);
 
             tsc.SetResult(true);
             await tsc.Task;
