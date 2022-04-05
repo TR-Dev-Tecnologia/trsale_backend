@@ -33,6 +33,61 @@
           }
         },
         {
+          "ruleId": "S2583",
+          "level": "warning",
+          "message": "Change this condition so that it does not always evaluate to 'true'; some subsequent code is never executed.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Sistemas/TRSale/backend/TRSale.Domain/Helpers/CriptoHelper.cs",
+                "region": {
+                  "startLine": 74,
+                  "startColumn": 17,
+                  "endLine": 74,
+                  "endColumn": 23
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Sistemas/TRSale/backend/TRSale.Domain/Helpers/CriptoHelper.cs",
+                "region": {
+                  "startLine": 85,
+                  "startColumn": 13,
+                  "endLine": 88,
+                  "endColumn": 14
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S3329",
+          "level": "warning",
+          "message": "Use a dynamically-generated, random IV.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Sistemas/TRSale/backend/TRSale.Domain/Helpers/CriptoHelper.cs",
+                "region": {
+                  "startLine": 94,
+                  "startColumn": 46,
+                  "endLine": 94,
+                  "endColumn": 82
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
           "ruleId": "CA1507",
           "level": "note",
           "message": "Use nameof in place of string literal 'password'",
@@ -121,61 +176,6 @@
                   "startColumn": 17,
                   "endLine": 129,
                   "endColumn": 18
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S2583",
-          "level": "warning",
-          "message": "Change this condition so that it does not always evaluate to 'true'; some subsequent code is never executed.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Sistemas/TRSale/backend/TRSale.Domain/Helpers/CriptoHelper.cs",
-                "region": {
-                  "startLine": 74,
-                  "startColumn": 17,
-                  "endLine": 74,
-                  "endColumn": 23
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Sistemas/TRSale/backend/TRSale.Domain/Helpers/CriptoHelper.cs",
-                "region": {
-                  "startLine": 85,
-                  "startColumn": 13,
-                  "endLine": 88,
-                  "endColumn": 14
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
-          "ruleId": "S3329",
-          "level": "warning",
-          "message": "Use a dynamically-generated, random IV.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Sistemas/TRSale/backend/TRSale.Domain/Helpers/CriptoHelper.cs",
-                "region": {
-                  "startLine": 94,
-                  "startColumn": 46,
-                  "endLine": 94,
-                  "endColumn": 82
                 }
               }
             }
