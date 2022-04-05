@@ -50,8 +50,7 @@ BaseEntity
 ;) *
 }+ ,
 } 
-} ö
-
+} ƒ
 8C:\Sistemas\TRSale\backend\TRSale.Domain\Entites\User.cs
 	namespace 	
 TRSale
@@ -131,9 +130,30 @@ BaseEntity		 !
 private& -
 set. 1
 ;1 2
-}3 4
-} 
-} ßx
+}3 4
+public 
+bool 
+Autenticate 
+(  
+string  &
+password' /
+)/ 0
+{ 	
+return 
+CriptoHelper 
+.   
+VerifyHashedPassword  4
+(4 5
+this5 9
+.9 :
+Password: B
+,B C
+passwordD L
+)L M
+;M N
+} 	
+} 
+} ßx
 @C:\Sistemas\TRSale\backend\TRSale.Domain\Helpers\CriptoHelper.cs
 	namespace 	
 TRSale

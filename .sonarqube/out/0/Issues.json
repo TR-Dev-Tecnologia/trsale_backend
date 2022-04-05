@@ -54,40 +54,6 @@
           }
         },
         {
-          "ruleId": "S2583",
-          "level": "warning",
-          "message": "Change this condition so that it does not always evaluate to 'true'; some subsequent code is never executed.",
-          "locations": [
-            {
-              "resultFile": {
-                "uri": "file:///C:/Sistemas/TRSale/backend/TRSale.Domain/Helpers/CriptoHelper.cs",
-                "region": {
-                  "startLine": 115,
-                  "startColumn": 21,
-                  "endLine": 115,
-                  "endColumn": 27
-                }
-              }
-            }
-          ],
-          "relatedLocations": [
-            {
-              "physicalLocation": {
-                "uri": "file:///C:/Sistemas/TRSale/backend/TRSale.Domain/Helpers/CriptoHelper.cs",
-                "region": {
-                  "startLine": 126,
-                  "startColumn": 17,
-                  "endLine": 129,
-                  "endColumn": 18
-                }
-              }
-            }
-          ],
-          "properties": {
-            "warningLevel": 1
-          }
-        },
-        {
           "ruleId": "S2053",
           "level": "warning",
           "message": "Make this salt unpredictable.",
@@ -121,6 +87,40 @@
                   "startColumn": 49,
                   "endLine": 47,
                   "endColumn": 59
+                }
+              }
+            }
+          ],
+          "properties": {
+            "warningLevel": 1
+          }
+        },
+        {
+          "ruleId": "S2583",
+          "level": "warning",
+          "message": "Change this condition so that it does not always evaluate to 'true'; some subsequent code is never executed.",
+          "locations": [
+            {
+              "resultFile": {
+                "uri": "file:///C:/Sistemas/TRSale/backend/TRSale.Domain/Helpers/CriptoHelper.cs",
+                "region": {
+                  "startLine": 115,
+                  "startColumn": 21,
+                  "endLine": 115,
+                  "endColumn": 27
+                }
+              }
+            }
+          ],
+          "relatedLocations": [
+            {
+              "physicalLocation": {
+                "uri": "file:///C:/Sistemas/TRSale/backend/TRSale.Domain/Helpers/CriptoHelper.cs",
+                "region": {
+                  "startLine": 126,
+                  "startColumn": 17,
+                  "endLine": 129,
+                  "endColumn": 18
                 }
               }
             }
