@@ -19,7 +19,7 @@ namespace TRSale.Domain.Entites
         public string Email { get; private set; }
         public string Password { get; private set; }
 
-        public bool Autenticate(string password)
+        public bool Authenticate(string password)
         {
             return CriptoHelper.VerifyHashedPassword(this.Password, password);            
         }
