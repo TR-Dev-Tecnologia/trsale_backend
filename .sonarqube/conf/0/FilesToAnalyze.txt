@@ -1,3 +1,0 @@
-﻿C:\Sistemas\TRSale\backend\TRSale.Domain\Entites\BaseEntity.cs
-C:\Sistemas\TRSale\backend\TRSale.Domain\Entites\User.cs
-C:\Sistemas\TRSale\backend\TRSale.Domain\Helpers\CriptoHelper.cs
