@@ -10,7 +10,7 @@ namespace TRSale.Domain.Tests.Entities
     public class UserTest
     {
         [Fact]
-        public async Task CriarNovaLojista()
+        public async Task NewUser()
         {
             var tsc = new TaskCompletionSource<bool>();
 
@@ -19,9 +19,9 @@ namespace TRSale.Domain.Tests.Entities
             Assert.Equal("John Connor", newUser.Name);
             Assert.Equal("john@skynet.com", newUser.Email);
 
-            Assert.True(newUser.Autenticate("123456"));
-            
-            Assert.False(newUser.Autenticate("888888"));
+            Assert.True(newUser.Authenticate("123456"));
+
+            Assert.False(newUser.Authenticate("888888"));
 
             tsc.SetResult(true);
             await tsc.Task;
