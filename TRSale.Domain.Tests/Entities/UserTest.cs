@@ -10,7 +10,7 @@ namespace TRSale.Domain.Tests.Entities
     public class UserTest
     {
         [Fact]
-        public async Task CriarNovaLojista()
+        public async Task NewUser()
         {
             var tsc = new TaskCompletionSource<bool>();
 
