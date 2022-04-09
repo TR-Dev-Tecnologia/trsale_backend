@@ -21,7 +21,7 @@ namespace TRSale.Domain.Tests.Entities
 
             Assert.True(newUser.Authenticate("123456"));
 
-            Assert.True(newUser.Authenticate("888888"));
+            Assert.False(newUser.Authenticate("888888"));
 
             tsc.SetResult(true);
             await tsc.Task;
