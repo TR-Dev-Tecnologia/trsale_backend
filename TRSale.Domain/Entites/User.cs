@@ -22,10 +22,6 @@ namespace TRSale.Domain.Entites
         public bool Authenticate(string password)
         {
             return CriptoHelper.VerifyHashedPassword(this.Password, password);            
-        }
-
-
-        
-        
+        }    
     }
 }
