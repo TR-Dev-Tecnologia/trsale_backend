@@ -107,27 +107,19 @@ namespace TRSale.Domain.Helpers
             try
             {
                 int keyByteSize = 32;
-                bool useHex = true;
+                //bool useHex = true;
                 byte[] keyBytes = new byte[keyByteSize];
                 byte[] ivBytes = new byte[16];
                 byte[] cipherBytes = Convert.FromBase64String(cipherText);
 
-                if (useHex)
+                int len = keyByteSize * 2;
+                for (int i = 0; i < len; i += 2)
                 {
-                    int len = keyByteSize * 2;
-                    for (int i = 0; i < len; i += 2)
-                    {
-                        keyBytes[i / 2] = Convert.ToByte(key.Substring(i, 2), 16);
-                        if (i < 32)
-                            ivBytes[i / 2] = Convert.ToByte(keyIv.Substring(i, 2), 16);
-                    }
+                    keyBytes[i / 2] = Convert.ToByte(key.Substring(i, 2), 16);
+                    if (i < 32)
+                        ivBytes[i / 2] = Convert.ToByte(keyIv.Substring(i, 2), 16);
                 }
-                else
-                {
-                    keyBytes = Convert.FromBase64String(key);
-                    ivBytes = Convert.FromBase64String(keyIv);
-                }
-
+                
                 using Aes aes = Aes.Create();
                 aes.Key = keyBytes;
                 aes.IV = ivBytes;
