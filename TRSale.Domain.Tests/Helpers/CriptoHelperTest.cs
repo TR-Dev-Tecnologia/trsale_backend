@@ -21,6 +21,12 @@ namespace TRSale.Domain.Tests.Helpers
 
             Assert.True(CriptoHelper.VerifyHashedPassword(password, "123456"));
             Assert.False(CriptoHelper.VerifyHashedPassword(password, "232323"));
+
+            Assert.False(CriptoHelper.VerifyHashedPassword(null, "232323"));
+
+            Assert.Throws<ArgumentNullException>(() => CriptoHelper.VerifyHashedPassword(password, null));
+            
+
             var key = "482730724F5FDCD34F9414D71D44A28542B81D29929A584BA7791996AE90042A";
             var keyIv = "AA4A196FAB0C7CF44B4B57AA1980FEE3";
             var text = "My secret text";

@@ -40,6 +40,8 @@ namespace TRSale.Domain.Tests.Entities
 
             newUser.GenereatePasswordToken();
             
+            Assert.Throws<ArgumentException>(() => newUser.UpdatePassword("TokenErrado", "888888"));
+            
             newUser.UpdatePassword(newUser.PasswordToken!, "888888");
 
             Assert.True(newUser.Authenticate("888888"));
