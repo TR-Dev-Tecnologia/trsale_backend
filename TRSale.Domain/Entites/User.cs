@@ -42,11 +42,11 @@ namespace TRSale.Domain.Entites
 
         public void UpdatePassword(string token, string newPassword)
         {
-            if (this.PasswordToken != token)
-                throw new Exception("Token invalid");
+            if (this.PasswordToken == null)
+                throw new ArgumentNullException("Token invalid");
             
             if (this.PasswordTokenValidity < DateTime.Now)
-                throw new Exception("Token invalid");
+                throw new ArgumentNullException("Token invalid");
 
             this.Password = CriptoHelper.HashPassword(newPassword);
             this.PasswordToken = null;
