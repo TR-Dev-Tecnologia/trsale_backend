@@ -23,9 +23,15 @@ namespace TRSale.Domain.Entites
 
         public DateTime? PasswordTokenValidity { get; private set; }
 
+        public DateTime? LastAccess { get; private set; }
+
         public bool Authenticate(string password)
         {
-            return CriptoHelper.VerifyHashedPassword(this.Password, password);            
+            var result = CriptoHelper.VerifyHashedPassword(this.Password, password);            
+            if (result){
+                this.LastAccess = DateTime.Now;
+            }
+            return result;
         }
 
         public void GenereatePasswordToken()

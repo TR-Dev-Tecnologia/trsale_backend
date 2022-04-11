@@ -25,6 +25,7 @@ namespace TRSale.Domain.Services
                 return new GenericCommandResult(false, "E-Mail or Password invalid");
 
             if (user.Authenticate(cmd.Password)){
+                _userRepository.Update(user);
                 return new GenericCommandResult(true, "Authenticate Success", new {Name=user.Name, Email=user.Email});
             } else {
                 return new GenericCommandResult(false, "E-Mail or Password invalid");
