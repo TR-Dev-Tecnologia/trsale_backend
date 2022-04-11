@@ -2,7 +2,7 @@ using System.Security.Cryptography;
 
 namespace TRSale.Domain.Helpers
 {
-    public class CriptoHelper
+    public static class CriptoHelper
     {
         static bool ByteArraysEqual(byte[] a1, byte[] a2)
         {
@@ -22,7 +22,7 @@ namespace TRSale.Domain.Helpers
             byte[] buffer2;
             if (password == null)
             {
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException("Error please check psw");
             }
             using (Rfc2898DeriveBytes bytes = new Rfc2898DeriveBytes(password, 0x10, 0x3e8))
             {
@@ -35,7 +35,7 @@ namespace TRSale.Domain.Helpers
             return Convert.ToBase64String(dst);
         }
 
-        public static bool VerifyHashedPassword(string hashedPassword, string password)
+        public static bool VerifyHashedPassword(string? hashedPassword, string? password)
         {
             byte[] buffer4;
             if (hashedPassword == null)
