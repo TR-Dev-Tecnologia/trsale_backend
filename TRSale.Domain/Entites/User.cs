@@ -47,10 +47,11 @@ namespace TRSale.Domain.Entites
             
             if (this.PasswordTokenValidity < DateTime.Now)
                 throw new Exception("Token invalid");
-                
+
             this.Password = CriptoHelper.HashPassword(newPassword);
             this.PasswordToken = null;
             this.PasswordTokenValidity = null;
+            //teste in the end file
         }
 
 
