@@ -40,6 +40,19 @@ namespace TRSale.Domain.Entites
             this.PasswordTokenValidity = DateTime.Now.AddMinutes(30);
         }
 
+        public void UpdatePassword(string token, string newPassword)
+        {
+            if (this.PasswordToken != token)
+                throw new Exception("Token invalid");
+            
+            if (this.PasswordTokenValidity < DateTime.Now)
+                throw new Exception("Token invalid");
+                
+            this.Password = CriptoHelper.HashPassword(newPassword);
+            this.PasswordToken = null;
+            this.PasswordTokenValidity = null;
+        }
+
 
     }
 }
