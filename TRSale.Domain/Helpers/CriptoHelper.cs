@@ -19,7 +19,7 @@ namespace TRSale.Domain.Helpers
 
         public static string HashPassword(string? password)
         {            
-            byte[] salt = Encoding.UTF8.GetBytes("5baa6413-5e1b-4845-94b7-875308d0aacf");
+            byte[] salt = Encoding.UTF8.GetBytes(Guid.NewGuid().ToString());
             byte[] buffer2;
             if (password == null)
             {
