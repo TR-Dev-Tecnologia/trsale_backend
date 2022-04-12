@@ -18,13 +18,16 @@ namespace TRSale.Domain.Helpers
         }
 
         public static string HashPassword(string? password)
-        {                       
-            byte[] salt = new byte[128 / 8];
-            byte[] buffer2;
+        {  
             if (password == null)
             {
                 throw new ArgumentNullException("Error please check psw");
-            }
+            }                     
+      
+            
+            byte[] salt = new Rfc2898DeriveBytes(password, 16).Salt;
+            byte[] buffer2;
+   
             using (Rfc2898DeriveBytes bytes = new Rfc2898DeriveBytes(password, 0x10, 0x3e8))
             {
                 salt = bytes.Salt;
