@@ -20,8 +20,8 @@ namespace TRSale.Domain.Helpers
         public static string HashPassword(string? password)
         {  
             if (password == null)
-            {
-                throw new ArgumentNullException("password is null");
+            {                
+                throw new ArgumentNullException(nameof(password));
             }                     
       
             
@@ -49,7 +49,7 @@ namespace TRSale.Domain.Helpers
             }
             if (password == null)
             {
-                throw new ArgumentNullException("Psw error");
+                throw new ArgumentNullException(nameof(password));
             }
 
             return CriptoHelper.HashPassword(password) == hashedPassword;

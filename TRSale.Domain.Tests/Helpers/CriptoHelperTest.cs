@@ -39,6 +39,10 @@ namespace TRSale.Domain.Tests.Helpers
             x2 = Encoding.UTF8.GetBytes("5baa6413");
             Assert.True(CriptoHelper.ByteArraysEqual(x1, x2));
 
+            x1 = Encoding.UTF8.GetBytes("5baa6413");
+            x2 = Encoding.UTF8.GetBytes("5baa5566");
+            Assert.True(CriptoHelper.ByteArraysEqual(x1, x2));
+
             tsc.SetResult(true);
             await tsc.Task;
         }
