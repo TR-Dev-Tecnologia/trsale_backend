@@ -30,19 +30,14 @@ namespace TRSale.Domain.Tests.Helpers
             Assert.Throws<ArgumentNullException>(() => CriptoHelper.HashPassword(null));
             
 
-            var key = "482730724F5FDCD34F9414D71D44A28542B81D29929A584BA7791996AE90042A";
-            var keyIv = "AA4A196FAB0C7CF44B4B57AA1980FEE3";
-            var text = "My secret text";
-            var criptText = CriptoHelper.EncryptString(text, key, keyIv);
-            Assert.NotEqual(criptText, text);
-
-            criptText = CriptoHelper.DecryptString(criptText, key, keyIv);
-            Assert.Equal(criptText, text);
-
-
+     
             byte[] x1 = Encoding.UTF8.GetBytes("5baa6413");
             byte[] x2 = Encoding.UTF8.GetBytes("z");
             Assert.False(CriptoHelper.ByteArraysEqual(x1, x2));
+
+            x1 = Encoding.UTF8.GetBytes("5baa6413");
+            x2 = Encoding.UTF8.GetBytes("5baa6413");
+            Assert.True(CriptoHelper.ByteArraysEqual(x1, x2));
 
             tsc.SetResult(true);
             await tsc.Task;
