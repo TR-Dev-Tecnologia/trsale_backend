@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text;
 using System.Threading.Tasks;
 using TRSale.Domain.Helpers;
 using Xunit;
@@ -11,7 +12,7 @@ namespace TRSale.Domain.Tests.Helpers
     {
 
         [Fact]
-        public async Task CriarNovaLojista()
+        public async Task Cripto()
         {
             var tsc = new TaskCompletionSource<bool>();
 
@@ -25,6 +26,8 @@ namespace TRSale.Domain.Tests.Helpers
             Assert.False(CriptoHelper.VerifyHashedPassword(null, "232323"));
 
             Assert.Throws<ArgumentNullException>(() => CriptoHelper.VerifyHashedPassword(password, null));
+
+            Assert.Throws<ArgumentNullException>(() => CriptoHelper.HashPassword(null));
             
 
             var key = "482730724F5FDCD34F9414D71D44A28542B81D29929A584BA7791996AE90042A";
@@ -35,6 +38,11 @@ namespace TRSale.Domain.Tests.Helpers
 
             criptText = CriptoHelper.DecryptString(criptText, key, keyIv);
             Assert.Equal(criptText, text);
+
+
+            byte[] x1 = Encoding.UTF8.GetBytes("5baa6413");
+            byte[] x2 = Encoding.UTF8.GetBytes("z");
+            Assert.False(CriptoHelper.ByteArraysEqual(x1, x2));
 
             tsc.SetResult(true);
             await tsc.Task;

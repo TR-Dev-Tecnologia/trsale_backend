@@ -1,10 +1,11 @@
 using System.Security.Cryptography;
+using System.Text;
 
 namespace TRSale.Domain.Helpers
 {
     public static class CriptoHelper
     {
-        static bool ByteArraysEqual(byte[] a1, byte[] a2)
+        public static bool ByteArraysEqual(byte[] a1, byte[] a2)
         {
             if (a1.Length != a2.Length)
                 return false;
@@ -16,9 +17,9 @@ namespace TRSale.Domain.Helpers
             return true;
         }
 
-        public static string HashPassword(string password)
-        {
-            byte[] salt;
+        public static string HashPassword(string? password)
+        {            
+            byte[] salt = Encoding.UTF8.GetBytes("5baa6413-5e1b-4845-94b7-875308d0aacf");
             byte[] buffer2;
             if (password == null)
             {
