@@ -18,8 +18,8 @@ namespace TRSale.Domain.Helpers
         }
 
         public static string HashPassword(string? password)
-        {            
-            byte[] salt = Encoding.UTF8.GetBytes(Guid.NewGuid().ToString());
+        {                       
+            byte[] salt = new byte[128 / 8];
             byte[] buffer2;
             if (password == null)
             {
@@ -45,7 +45,7 @@ namespace TRSale.Domain.Helpers
             }
             if (password == null)
             {
-                throw new ArgumentNullException("password");
+                throw new ArgumentNullException("Psw error");
             }
             byte[] src = Convert.FromBase64String(hashedPassword);
             if ((src.Length != 0x31) || (src[0] != 0))
