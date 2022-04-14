@@ -7,7 +7,7 @@ using TRSale.Domain.Helpers;
 namespace TRSale.Domain.Entites
 {
     public class User: BaseEntity
-    {
+    {   
         public User(string name, string email, string password)
         {
             Name = name;
@@ -50,8 +50,7 @@ namespace TRSale.Domain.Entites
 
             this.Password = CriptoHelper.HashPassword(newPassword);
             this.PasswordToken = null;
-            this.PasswordTokenValidity = null;
-            //teste in the end file
+            this.PasswordTokenValidity = null;            
         }
 
 
