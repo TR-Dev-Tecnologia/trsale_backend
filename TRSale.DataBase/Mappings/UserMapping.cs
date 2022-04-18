@@ -18,7 +18,7 @@ namespace TRSale.DataBase.Mappings
             entity.Property(a => a.Password).HasColumnType("longtext").IsRequired();
             entity.Property(a => a.LastAccess).HasColumnType("datetime");
 
-            entity.Property(a => a.PasswordToken).HasColumnType("char(36)");
+            entity.Property(a => a.PasswordToken).HasColumnType("varchar(255)");
             entity.Property(a => a.PasswordTokenValidity).HasColumnType("datetime");            
 
             entity.HasIndex(a => a.Email).HasDatabaseName("UnqUserEmail").IsUnique();

@@ -25,21 +25,20 @@ namespace TRSale.DataBase
             {
                 relationship.DeleteBehavior = DeleteBehavior.Restrict;
 
-                if (relationship.Properties.Count != 0)
-                {
-                    var prop = relationship.Properties[0];
+                if (relationship.Properties.Count == 0)
+                    continue;
 
-                    var PTR = prop.PropertyInfo;
-                    if (PTR != null)
+                var prop = relationship.Properties[0];
+                var PTR = prop.PropertyInfo;
+                if (PTR == null)
+                    continue;
+                
+                var attributes = PTR.CustomAttributes;
+                foreach (var attribute in attributes)
+                {
+                    if (attribute.AttributeType.Name.ToLower() == "cascade")
                     {
-                        var attributes = PTR.CustomAttributes;
-                        foreach (var attribute in attributes)
-                        {
-                            if (attribute.AttributeType.Name.ToLower() == "cascade")
-                            {
-                                relationship.DeleteBehavior = DeleteBehavior.Cascade;
-                            }
-                        }
+                        relationship.DeleteBehavior = DeleteBehavior.Cascade;
                     }
                 }
 
