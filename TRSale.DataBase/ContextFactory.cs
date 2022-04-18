@@ -11,7 +11,8 @@ namespace TRSale.DataBase
     {
         public TRSaleContext CreateDbContext(string[] args)
         {            
-            var connectionString = "Server=localhost;Port=3306;Database=TRSale;Uid=root;Pwd=fx870";
+            
+            var connectionString = Environment.GetEnvironmentVariable("trsaledb");
             
                         
             var optionsBuilder = new DbContextOptionsBuilder<TRSaleContext>();
