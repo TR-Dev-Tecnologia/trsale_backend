@@ -10,5 +10,6 @@ namespace TRSale.Domain.Interfaces.Services
     public interface IUserService
     {
         GenericCommandResult Login(LoginCommand cmd);
+        GenericCommandResult SignUp(SignUpCommand cmd);
     }
 }
