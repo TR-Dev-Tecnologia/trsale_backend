@@ -42,7 +42,7 @@ namespace TRSale.Domain.Services
             if (!valid.Success)
                 return valid;
 
-            if (_userRepository.FindByEmail(cmd.Email) == null)
+            if (_userRepository.FindByEmail(cmd.Email) != null)
                 return new GenericCommandResult(false, "E-Mail exists, try login");
             
             _uow.BeginTransaction();
@@ -52,10 +52,10 @@ namespace TRSale.Domain.Services
                 _userRepository.Create(user);
                 _uow.Commit();
             }
-            catch(Exception e)
+            catch(Exception)
             {
                 _uow.Rollback();
-                throw e;
+                throw;
             }
             return new GenericCommandResult(true, "Account created with success");
             
