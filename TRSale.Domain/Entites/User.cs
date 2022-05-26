@@ -39,7 +39,7 @@ namespace TRSale.Domain.Entites
         public void UpdatePassword(string token, string newPassword)
         {
             if (this.PasswordToken != token)
-                throw new ArgumentException("Token invalid");
+                throw new ArgumentException("Token invalid!");
             
             if (this.PasswordTokenValidity < DateTime.Now)
                 throw new ArgumentException("Token invalid");
