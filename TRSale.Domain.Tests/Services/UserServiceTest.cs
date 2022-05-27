@@ -83,6 +83,28 @@ namespace TRSale.Domain.Tests.Services
             Assert.False(result.Success);
 
 
+            cmd.Email = "terminator@skeynet.com";
+            cmd.Name = String.Empty;
+            cmd.Password = "123456";
+            result = userService.SignUp(cmd);
+            Assert.False(result.Success);
+
+
+            cmd.Email = "terminator@skeynet.com";
+            cmd.Name = "Model T800";
+            cmd.Password = String.Empty;
+            result = userService.SignUp(cmd);
+            Assert.False(result.Success);
+
+
+            userRepository.Setup(a => a.Create(It.IsAny<User>())).Throws(new ArgumentNullException());
+
+            cmd.Email = "terminator@skeynet.com";
+            cmd.Name = "Model T800";
+            cmd.Password = "123456";
+            
+            Assert.Throws<ArgumentNullException>(() => result = userService.SignUp(cmd));
+                        
             tsc.SetResult(true);
             await tsc.Task;
         }

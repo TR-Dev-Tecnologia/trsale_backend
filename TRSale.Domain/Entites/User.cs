@@ -36,6 +36,12 @@ namespace TRSale.Domain.Entites
             this.PasswordTokenValidity = DateTime.Now.AddMinutes(30);
         }
 
+        public void GenereatePasswordToken(DateTime validity)
+        {
+            this.PasswordToken = Guid.NewGuid().ToString();
+            this.PasswordTokenValidity = validity;
+        }
+
         public void UpdatePassword(string token, string newPassword)
         {
             if (this.PasswordToken != token)

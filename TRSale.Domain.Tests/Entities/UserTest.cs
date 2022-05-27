@@ -46,6 +46,11 @@ namespace TRSale.Domain.Tests.Entities
 
             Assert.True(newUser.Authenticate("888888"));
 
+
+            newUser.GenereatePasswordToken(DateTime.Now.AddMinutes(-30));
+            Assert.Throws<ArgumentException>(() => newUser.UpdatePassword(newUser.PasswordToken!, "888888"));
+            
+
             tsc.SetResult(true);
             await tsc.Task;
 

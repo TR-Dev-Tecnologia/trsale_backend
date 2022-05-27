@@ -4,7 +4,7 @@ using Microsoft.EntityFrameworkCore.Storage;
 
 namespace TRSale.DataBase
 {
-    public class UnitOfWork
+    public class UnitOfWork: IDisposable
     {
         #nullable disable
         private readonly TRSaleContext _context;
@@ -31,15 +31,13 @@ namespace TRSale.DataBase
 
         public void Commit()
         {
-            if (_dbContextTransaction == null)
-            {                
-                throw new NullReferenceException("Transaction not started");
-            }
-
-            _context.SaveChangesAsync().Wait();
-            _dbContextTransaction.CommitAsync().Wait();
-            this.DetachedChanges();
-            _dbContextTransaction = null;
+            if (_dbContextTransaction != null)
+            {        
+                _context.SaveChangesAsync().Wait();
+                _dbContextTransaction.CommitAsync().Wait();
+                this.DetachedChanges();
+                _dbContextTransaction = null;
+            }            
         }
 
         public void DetachedChanges()
