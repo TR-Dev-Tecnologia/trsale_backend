@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TRSale.Domain.Attributes
 {
-    public class NotPersist: Attribute
+    public class NotPersistAttribute: Attribute
     {
         
     }

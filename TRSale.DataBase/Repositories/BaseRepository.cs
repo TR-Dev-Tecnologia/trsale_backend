@@ -35,7 +35,7 @@ namespace TRSale.DataBase.Repositories
                 var attributies = prop.GetCustomAttributes(true);
                 foreach (var attribute in attributies)
                 {
-                    if (attribute is NotPersist)
+                    if (attribute is NotPersistAttribute)
                     {
                         prop.SetValue(model, null);
                     }

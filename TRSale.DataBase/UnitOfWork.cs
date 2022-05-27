@@ -7,7 +7,7 @@ namespace TRSale.DataBase
     public class UnitOfWork
     {
         #nullable disable
-        private TRSaleContext _context;
+        private readonly TRSaleContext _context;
         private IDbContextTransaction _dbContextTransaction;
 
         public UnitOfWork(TRSaleContext context)
@@ -32,8 +32,8 @@ namespace TRSale.DataBase
         public void Commit()
         {
             if (_dbContextTransaction == null)
-            {
-                throw new Exception("Transaction not started");
+            {                
+                throw new NullReferenceException("Transaction not started");
             }
 
             _context.SaveChangesAsync().Wait();
@@ -45,9 +45,7 @@ namespace TRSale.DataBase
         public void DetachedChanges()
         {
             foreach (var entry in _context.ChangeTracker.Entries())
-            {
-
-                // Libera o estado de uma entidade adicionada para liberado(detached);
+            {                
                 if (entry.State == EntityState.Unchanged)
                 {
                     entry.State = EntityState.Detached;

@@ -5,7 +5,7 @@ using System.Threading.Tasks;
 
 namespace TRSale.Domain.Attributes
 {
-    public class Cascade: Attribute
+    public class CascadeAttribute: Attribute
     {
         
     }
