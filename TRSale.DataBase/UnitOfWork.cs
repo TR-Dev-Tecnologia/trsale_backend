@@ -15,15 +15,7 @@ namespace TRSale.DataBase
             _context = context;
         }
 
-        public void Dispose()
-        {
-            if (_dbContextTransaction != null)
-            {
-                _dbContextTransaction.DisposeAsync();
-            }
-
-        }
-
+        
         public void BeginTransaction()
         {
             _dbContextTransaction = _context.Database.BeginTransaction();
@@ -67,6 +59,14 @@ namespace TRSale.DataBase
             }
             return result;
         }
-        
+
+        public void Dispose()
+        {
+            if (_dbContextTransaction != null)
+            {
+                _dbContextTransaction.DisposeAsync();
+            }
+            GC.SuppressFinalize(this);
+        }
     }
 }
