@@ -11,5 +11,7 @@ namespace TRSale.Domain.Interfaces.Services
     {
         GenericCommandResult Login(LoginCommand cmd);
         GenericCommandResult SignUp(SignUpCommand cmd);
+        GenericCommandResult Forgot(ForgotCommand cmd);
+        GenericCommandResult Recovery(RecoveryPasswordCommand cmd);
     }
 }

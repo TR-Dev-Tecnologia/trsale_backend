@@ -22,9 +22,11 @@ namespace TRSale.Domain.Tests.Services
             var userRepository = new Mock<IUserRepository>();
             var user = new User("John Connor", "john@skynet.com", "123456");
             userRepository.Setup(a => a.FindByEmail("john@skynet.com")).Returns(user);
+
+            var emailService = new Mock<IEmailService>();
             
 
-            var userService = new UserService(userRepository.Object, uow.Object);
+            var userService = new UserService(userRepository.Object, uow.Object, emailService.Object);
 
             var cmd = new LoginCommand();
             cmd.Email = "john@skynet.com";
@@ -61,9 +63,11 @@ namespace TRSale.Domain.Tests.Services
             var userRepository = new Mock<IUserRepository>();
             var user = new User("John Connor", "john@skynet.com", "123456");
             userRepository.Setup(a => a.FindByEmail("john@skynet.com")).Returns(user);
+
+            var emailService = new Mock<IEmailService>();
             
 
-            var userService = new UserService(userRepository.Object, uow.Object);
+            var userService = new UserService(userRepository.Object, uow.Object, emailService.Object);
 
             var cmd = new SignUpCommand();
             cmd.Email = "terminator@skynet.com";
@@ -109,5 +113,62 @@ namespace TRSale.Domain.Tests.Services
             await tsc.Task;
         }
         
+        [Fact]
+        public async Task Forgot_and_Recovery()
+        {
+
+            var tsc = new TaskCompletionSource<bool>();
+
+            var uow = new Mock<IUnitOfWork>();
+            
+            var userRepository = new Mock<IUserRepository>();
+            var user = new User("John Connor", "john@skynet.com", "123456");
+            userRepository.Setup(a => a.FindByToken(It.IsAny<string>())).Returns(user);
+            userRepository.Setup(a => a.FindByEmail("john@skynet.com")).Returns(user);
+
+            var emailService = new Mock<IEmailService>();
+            
+
+            var userService = new UserService(userRepository.Object, uow.Object, emailService.Object);
+            var cmd = new ForgotCommand();
+            cmd.Email = "obama@skynet.com";
+            var result = userService.Forgot(cmd);
+            Assert.False(result.Success);
+
+
+            cmd.Email = string.Empty;
+            result = userService.Forgot(cmd);
+            Assert.False(result.Success);
+
+
+            cmd.Email = "john@skynet.com";
+            result = userService.Forgot(cmd);
+            Assert.True(result.Success);
+
+            Assert.NotEmpty(user.PasswordToken);
+
+            var cmdRecovery = new RecoveryPasswordCommand();
+    
+            result = userService.Recovery(cmdRecovery);
+            Assert.False(result.Success);
+
+            cmdRecovery.NewPassword = "112233";
+            cmdRecovery.Token = "ERORTOKEN";
+            Assert.Throws<ArgumentException>(() => result = userService.Recovery(cmdRecovery));
+            
+
+            cmdRecovery.Token = user.PasswordToken!;
+            result = userService.Recovery(cmdRecovery);
+            Assert.True(result.Success);
+
+            var cmdLogin = new LoginCommand();
+            cmdLogin.Email = "john@skynet.com";
+            cmdLogin.Password = "112233";
+            result = userService.Login(cmdLogin);
+            Assert.True(result.Success);
+
+            tsc.SetResult(true);
+            await tsc.Task;
+        }
     }
 }

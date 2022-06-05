@@ -9,5 +9,6 @@ namespace TRSale.Domain.Interfaces.Repositories
     public interface IUserRepository: IBaseRepository<User>
     {
         User? FindByEmail(string email);
+        User? FindByToken(string token);
     }
 }

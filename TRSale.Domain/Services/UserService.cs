@@ -14,12 +14,30 @@ namespace TRSale.Domain.Services
     public class UserService : IUserService
     {
         private readonly IUserRepository _userRepository;
+        private readonly IEmailService _emailService;
         private readonly IUnitOfWork _uow;
 
-        public UserService(IUserRepository userRepository, IUnitOfWork uow)
+        public UserService(IUserRepository userRepository, IUnitOfWork uow, IEmailService emailService)
         {
             _userRepository = userRepository;
             _uow = uow;
+            _emailService = emailService;
+        }
+
+        public GenericCommandResult Forgot(ForgotCommand cmd)
+        {
+            var result = cmd.Validate();
+            if (!result.Success)
+                return result;
+
+            var user = _userRepository.FindByEmail(cmd.Email);
+            if (user == null)
+                return new GenericCommandResult(false, "E-Mail or Password invalid");
+
+            user.GenereatePasswordToken();
+            var msg = $@"Click in this link for recover password <a>https://teste.com.br/recover/{user.PasswordToken}</a>";
+            _emailService.SendEmail("Password Recovery", user.Email, msg);
+            return new GenericCommandResult(true, "Check your email");
         }
 
         public GenericCommandResult Login(LoginCommand cmd)
@@ -34,6 +52,31 @@ namespace TRSale.Domain.Services
             } else {
                 return new GenericCommandResult(false, "E-Mail or Password invalid");
             }
+        }
+
+        public GenericCommandResult Recovery(RecoveryPasswordCommand cmd)
+        {
+            var valid = cmd.Validate();
+            if (!valid.Success)
+                return valid;
+
+            _uow.BeginTransaction();
+            try{
+                var user = _userRepository.FindByToken(cmd.Token);
+                if (user == null)
+                    return new GenericCommandResult(false, "Token invalid");
+
+                user.UpdatePassword(cmd.Token, cmd.NewPassword);
+                _userRepository.Update(user);
+                _uow.Commit();
+            }
+            catch(Exception)
+            {
+                _uow.Rollback();
+                throw;
+            }
+            return valid;
+            
         }
 
         public GenericCommandResult SignUp(SignUpCommand cmd)        

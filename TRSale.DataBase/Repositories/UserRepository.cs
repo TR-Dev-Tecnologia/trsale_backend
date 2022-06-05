@@ -15,5 +15,10 @@ namespace TRSale.DataBase.Repositories
         {
             return _connection.Query<User>($@"Select * from User where Email = @Email", new {Email = email}, _uow.CurrentTransaction()).FirstOrDefault();
         }
+
+        public User? FindByToken(string token)
+        {
+            return _connection.Query<User>($@"Select * from User where PasswordToken = @PasswordToken", new {PasswordToken = token}, _uow.CurrentTransaction()).FirstOrDefault();
+        }
     }
 }
