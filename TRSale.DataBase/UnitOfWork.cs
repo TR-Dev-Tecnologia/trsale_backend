@@ -60,13 +60,20 @@ namespace TRSale.DataBase
             return result;
         }
 
+
         public void Dispose()
         {
+            Dispose(true);
+            GC.SuppressFinalize(this);
+        }
+
+        protected virtual void Dispose(bool disposing)
+        {
+            // Cleanup
             if (_dbContextTransaction != null)
             {
-                _dbContextTransaction.DisposeAsync();
+                _dbContextTransaction.Dispose();
             }
-            GC.SuppressFinalize(this);
         }
     }
 }
