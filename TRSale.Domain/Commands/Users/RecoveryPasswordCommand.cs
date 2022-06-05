@@ -19,7 +19,7 @@ namespace TRSale.Domain.Commands.Users
             if (string.IsNullOrEmpty(this.NewPassword))
                 return new GenericCommandResult(false, "Password Invalid");
 
-            if (this.NewPassword.Count() < 6)
+            if (this.NewPassword.Length < 6)
                 return new GenericCommandResult(false, "Password Invalid");
                 
             return new GenericCommandResult(true, "valid");
