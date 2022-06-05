@@ -154,13 +154,29 @@ namespace TRSale.Domain.Tests.Services
 
             cmdRecovery.NewPassword = "112233";
             cmdRecovery.Token = String.Empty;
-            Assert.Throws<ArgumentException>(() => result = userService.Recovery(cmdRecovery));
+            result = userService.Recovery(cmdRecovery);
+            Assert.False(result.Success);
             
 
             cmdRecovery.Token = user.PasswordToken!;
             cmdRecovery.NewPassword = "123";
             result = userService.Recovery(cmdRecovery);
             Assert.False(result.Success);
+
+            cmdRecovery.NewPassword = String.Empty;
+            result = userService.Recovery(cmdRecovery);
+            Assert.False(result.Success);
+            
+            result = userService.Recovery(cmdRecovery);
+            Assert.False(result.Success);
+
+
+            userRepository.Setup(a => a.FindByToken(user.PasswordToken!)).Returns(user);
+            cmdRecovery.Token = "xyz";
+            cmdRecovery.NewPassword = "112233";
+            result = userService.Recovery(cmdRecovery);
+            Assert.True(result.Success);
+
 
             cmdRecovery.Token = user.PasswordToken!;
             cmdRecovery.NewPassword = "112233";
