@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRSale.DataBase", "TRSale.D
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRSale.Infra", "TRSale.Infra\TRSale.Infra.csproj", "{ADEF4C12-38BE-4C86-B5AD-D68B1029ECBC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "TRSale.CrossCutting", "TRSale.CrossCutting\TRSale.CrossCutting.csproj", "{27B5DD55-9E8E-4798-AD32-76961773640C}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -40,5 +42,9 @@ Global
 		{68B41263-8113-4213-B1A1-C1A6271298E5}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{68B41263-8113-4213-B1A1-C1A6271298E5}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{68B41263-8113-4213-B1A1-C1A6271298E5}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27B5DD55-9E8E-4798-AD32-76961773640C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27B5DD55-9E8E-4798-AD32-76961773640C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27B5DD55-9E8E-4798-AD32-76961773640C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27B5DD55-9E8E-4798-AD32-76961773640C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 EndGlobal
