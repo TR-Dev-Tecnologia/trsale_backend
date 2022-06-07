@@ -1,10 +1,11 @@
 using System.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Storage;
+using TRSale.Domain.Interfaces.Infra;
 
 namespace TRSale.DataBase
 {
-    public class UnitOfWork: IDisposable
+    public class UnitOfWork: IUnitOfWork, IDisposable
     {
         #nullable disable
         private readonly TRSaleContext _context;

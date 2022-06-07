@@ -7,6 +7,6 @@ namespace TRSale.Domain.Interfaces.Infra
 {
     public interface IEmailService
     {
-        void SendEmail(string subject, string from, string body);
+        void Send(string subject, string from, string body);
     }
 }

@@ -174,8 +174,8 @@ namespace TRSale.Domain.Tests.Services
             userRepository.Setup(a => a.FindByToken(user.PasswordToken!)).Returns(user);
             cmdRecovery.Token = "xyz";
             cmdRecovery.NewPassword = "112233";
-            result = userService.Recovery(cmdRecovery);
-            Assert.True(result.Success);
+            Assert.Throws<ArgumentException>( () =>  result = userService.Recovery(cmdRecovery));
+            
 
 
             cmdRecovery.Token = user.PasswordToken!;

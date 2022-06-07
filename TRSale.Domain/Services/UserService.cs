@@ -36,7 +36,7 @@ namespace TRSale.Domain.Services
 
             user.GenereatePasswordToken();
             var msg = $@"Click in this link for recover password <a>https://teste.com.br/recover/{user.PasswordToken}</a>";
-            _emailService.SendEmail("Password Recovery", user.Email, msg);
+            _emailService.Send("Password Recovery", user.Email, msg);
             return new GenericCommandResult(true, "Check your email");
         }
 
