@@ -3,7 +3,11 @@ using TRSale.Domain.Helpers;
 namespace TRSale.Domain.Entites
 {
     public class User: BaseEntity
-    {   
+    { 
+        private User(): base()
+        {
+            
+        }  
         public User(string name, string email, string password)
         {
             Name = name;
@@ -11,9 +15,9 @@ namespace TRSale.Domain.Entites
             Password = CriptoHelper.HashPassword(password);
         }
 
-        public string Name { get; private set; }        
-        public string Email { get; private set; }
-        public string Password { get; private set; }       
+        public string Name { get; private set; } = null!;      
+        public string Email { get; private set; } = null!;
+        public string Password { get; private set; } = null!;     
 
         public string? PasswordToken { get; private set; } = null!;
 

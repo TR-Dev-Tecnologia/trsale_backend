@@ -1,4 +1,5 @@
 using Dapper;
+using Microsoft.EntityFrameworkCore;
 using TRSale.Domain.Entites;
 using TRSale.Domain.Interfaces.Infra;
 using TRSale.Domain.Interfaces.Repositories;
@@ -9,6 +10,7 @@ namespace TRSale.DataBase.Repositories
     {
         public UserRepository(TRSaleContext context, IUnitOfWork uow) : base(context, uow)
         {
+            
         }
 
         public User? FindByEmail(string email)

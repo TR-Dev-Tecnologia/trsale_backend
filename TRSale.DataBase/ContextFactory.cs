@@ -10,11 +10,9 @@ namespace TRSale.DataBase
     public class ContextFactory : IDesignTimeDbContextFactory<TRSaleContext>
     {
         public TRSaleContext CreateDbContext(string[] args)
-        {            
-            
-            var connectionString = Environment.GetEnvironmentVariable("trsaledb");
-            
-                        
+        {                        
+            var connectionString = Environment.GetEnvironmentVariable("trsale_db");
+                                    
             var optionsBuilder = new DbContextOptionsBuilder<TRSaleContext>();
             var mysqlServerVersion = new MySqlServerVersion(new Version(8, 0, 26)); 
             optionsBuilder.UseMySql(connectionString, mysqlServerVersion);

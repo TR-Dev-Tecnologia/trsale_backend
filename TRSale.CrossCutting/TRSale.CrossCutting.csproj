@@ -3,6 +3,7 @@
   <ItemGroup>
     <ProjectReference Include="..\TRSale.Domain\TRSale.Domain.csproj" />
     <ProjectReference Include="..\TRSale.DataBase\TRSale.DataBase.csproj" />
+    <ProjectReference Include="..\TRSale.Infra\TRSale.Infra.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

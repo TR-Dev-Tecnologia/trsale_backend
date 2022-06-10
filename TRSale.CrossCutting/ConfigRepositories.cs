@@ -15,7 +15,7 @@ namespace TRSale.CrossCutting
     {
         public static void Config(IServiceCollection services)
         {
-            var connectionString = Environment.GetEnvironmentVariable("Connection_db");
+            var connectionString = Environment.GetEnvironmentVariable("trsale_db");
 
             services.AddDbContext<TRSaleContext>(options => options.UseMySql(connectionString, new MySqlServerVersion(new Version(8, 0, 26))));
 
