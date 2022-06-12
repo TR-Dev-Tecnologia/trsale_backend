@@ -9,7 +9,7 @@ namespace TRSale.Domain.Interfaces.Services
 {
     public interface IUserService
     {
-        GenericCommandResult Login(LoginCommand cmd);
+        LoginCommandResult Login(LoginCommand cmd);
         GenericCommandResult SignUp(SignUpCommand cmd);
         GenericCommandResult Forgot(ForgotCommand cmd);
         GenericCommandResult Recovery(RecoveryPasswordCommand cmd);

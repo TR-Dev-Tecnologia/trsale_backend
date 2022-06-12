@@ -187,8 +187,8 @@ namespace TRSale.Domain.Tests.Services
             var cmdLogin = new LoginCommand();
             cmdLogin.Email = "john@skynet.com";
             cmdLogin.Password = "112233";
-            result = userService.Login(cmdLogin);
-            Assert.True(result.Success);
+            var loginResult = userService.Login(cmdLogin);
+            Assert.True(loginResult.Success);
 
             tsc.SetResult(true);
             await tsc.Task;
