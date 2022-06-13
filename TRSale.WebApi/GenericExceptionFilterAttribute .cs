@@ -17,10 +17,9 @@ namespace TRSale.WebApi
             {
                 context.Exception = context.Exception.InnerException;
             }
-            context.Result = new JsonResult(new GenericCommandResult(false, context.Exception.Message)){StatusCode = 500};
-        }
-
             
-        
+            context.Result = new JsonResult(new GenericCommandResult(false, context.Exception.Message)){StatusCode = 500};
+            
+        }                    
     }
 }

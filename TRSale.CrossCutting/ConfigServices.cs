@@ -16,6 +16,7 @@ namespace TRSale.CrossCutting
         {
             services.AddScoped<IUserService, UserService>();
             services.AddScoped<IEmailService, EmailService>();
+            services.AddScoped<ICompanyService, CompanyService>();
             
         }
     }

@@ -2,6 +2,7 @@
 using System;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 using TRSale.DataBase;
 
@@ -10,9 +11,10 @@ using TRSale.DataBase;
 namespace TRSale.DataBase.Migrations
 {
     [DbContext(typeof(TRSaleContext))]
-    partial class TRSaleContextModelSnapshot : ModelSnapshot
+    [Migration("20220613230804_Vr02")]
+    partial class Vr02
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

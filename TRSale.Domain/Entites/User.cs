@@ -8,7 +8,7 @@ namespace TRSale.Domain.Entites
         {
             
         }  
-        public User(string name, string email, string password)
+        public User(string name, string email, string password): base()
         {
             Name = name;
             Email = email;
@@ -58,7 +58,6 @@ namespace TRSale.Domain.Entites
             this.PasswordToken = null;
             this.PasswordTokenValidity = null;            
         }
-
 
     }
 }

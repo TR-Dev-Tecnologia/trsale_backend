@@ -15,9 +15,8 @@ namespace TRSale.WebApi.Services
         {
             var claimsIdentity = new ClaimsIdentity(new Claim[]
             {
-                new Claim(ClaimTypes.Name, name),
-                new Claim(ClaimTypes.Email, email),
-                new Claim("Id", id)
+                new Claim(ClaimTypes.Name, id),
+                new Claim(ClaimTypes.Email, email)
             });
 
             return Token(claimsIdentity, DateTime.UtcNow.AddHours(2));
@@ -27,7 +26,7 @@ namespace TRSale.WebApi.Services
         {
             var key = Environment.GetEnvironmentVariable("Secret");
             if (key == null)
-                throw new ArgumentNullException("Secret");
+                throw new ArgumentNullException();
 
             var tokenHandler = new JwtSecurityTokenHandler();
             var tokenDescriptor = new SecurityTokenDescriptor

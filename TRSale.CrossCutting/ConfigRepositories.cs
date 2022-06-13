@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using TRSale.DataBase;
 using TRSale.DataBase.Repositories;
+using TRSale.Domain.Entites;
 using TRSale.Domain.Interfaces.Infra;
 using TRSale.Domain.Interfaces.Repositories;
 
@@ -23,7 +24,8 @@ namespace TRSale.CrossCutting
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserRepository, UserRepository>();
-            
+            services.AddScoped<IBaseRepository<Company>, BaseRepository<Company>>();
+            services.AddScoped<IBaseRepository<Member>, BaseRepository<Member>>();                       
             
         }
         
