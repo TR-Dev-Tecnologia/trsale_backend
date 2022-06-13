@@ -10,7 +10,7 @@ using TRSale.Infra.Services;
 
 namespace TRSale.CrossCutting
 {
-    public class ConfigServices
+    public static class ConfigServices
     {
         public static void Config(IServiceCollection services)
         {

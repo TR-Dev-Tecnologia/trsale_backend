@@ -12,7 +12,7 @@ namespace TRSale.Infra.Services
     {
         public void Send(string subject, string from, string body)
         {
-            
+            throw new NotImplementedException();            
         }
     }
 }

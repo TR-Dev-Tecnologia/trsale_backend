@@ -9,7 +9,7 @@ using Microsoft.IdentityModel.Tokens;
 
 namespace TRSale.WebApi.Services
 {
-    public class TokenService
+    public static class TokenService
     {
         public static string GenerateToken(string id, string name, string email)
         {

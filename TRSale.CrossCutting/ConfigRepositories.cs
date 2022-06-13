@@ -11,7 +11,7 @@ using TRSale.Domain.Interfaces.Repositories;
 
 namespace TRSale.CrossCutting
 {
-    public class ConfigRepositories
+    public static class ConfigRepositories
     {
         public static void Config(IServiceCollection services)
         {

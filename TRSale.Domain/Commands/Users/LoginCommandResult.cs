@@ -21,8 +21,8 @@ namespace TRSale.Domain.Commands.Users
             this.Name = user.Name;
         }
         public Guid Id { get; set; }
-        public string Name { get; set; } = null!;
-        public string Email { get; set; } = null!;
+        public string Name { get; set; }
+        public string Email { get; set; }
     }
     public class LoginCommandResult : BaseCommandResult<AuthenticatedData>
     {
