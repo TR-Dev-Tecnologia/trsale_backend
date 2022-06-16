@@ -4,18 +4,18 @@ using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
-using Microsoft.EntityFrameworkCore.Migrations;
 using TRSale.DataBase.Mappings;
-using TRSale.Domain.Entites;
+using TRSale.Domain.Company.Entities;
 
-namespace TRSale.DataBase
+namespace TRSale.DataBase.Company
 {
-    public class TRSaleContext: DbContext
+    public class TRSaleCompanyContext: DbContext
     {
-        public TRSaleContext(DbContextOptions<TRSaleContext> options): base(options)
+        public TRSaleCompanyContext(DbContextOptions<TRSaleCompanyContext> options): base(options)
         {
             
         }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
             base.OnModelCreating(modelBuilder);
@@ -33,7 +33,8 @@ namespace TRSale.DataBase
 
         }
 
-        public DbSet<User> Users { get; set; } = null!;
-                
+        public DbSet<Category> Categories { get; set; } = null!;
+ 
+        
     }
 }

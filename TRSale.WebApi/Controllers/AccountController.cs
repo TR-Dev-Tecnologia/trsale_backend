@@ -12,7 +12,7 @@ namespace TRSale.WebApi.Controllers
     public class AccountController : ControllerBase
     {
         [HttpPost]
-        [Route("SignUp")]        
+        [Route("SignUp")]
         [AllowAnonymous]
         public async Task<IActionResult> SignUp([FromServices] IUserService service, [FromBody] SignUpCommand cmd)
         {            

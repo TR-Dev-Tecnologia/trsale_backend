@@ -109,6 +109,7 @@ if (app.Environment.IsDevelopment())
 {
     Environment.SetEnvironmentVariable("DomainCookie", builder.Configuration["DomainCookie"]);
 }
+
 app.UseHttpsRedirection();
 app.UseAuthentication();
 app.UseAuthorization();

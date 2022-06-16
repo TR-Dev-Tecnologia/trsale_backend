@@ -1,3 +1,5 @@
+using TRSale.Domain.Attributes;
+
 namespace TRSale.Domain.Entites
 {
     public class Member: BaseEntity
@@ -15,11 +17,13 @@ namespace TRSale.Domain.Entites
 
         public Guid CompanyId { get; private set; }
 
+        [NotPersistAttribute]
         public virtual Company Company { get; private set; } = null!;
-
+        
+        
         public Guid UserId { get; private set; }
 
-        public virtual User User { get; private set; } = null!;
-        
+        [NotPersistAttribute]
+        public virtual User User { get; private set; } = null!;        
     }
 }

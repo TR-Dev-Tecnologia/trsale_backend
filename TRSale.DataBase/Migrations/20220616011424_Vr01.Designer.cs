@@ -11,8 +11,8 @@ using TRSale.DataBase;
 namespace TRSale.DataBase.Migrations
 {
     [DbContext(typeof(TRSaleContext))]
-    [Migration("20220613230804_Vr02")]
-    partial class Vr02
+    [Migration("20220616011424_Vr01")]
+    partial class Vr01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -52,7 +52,11 @@ namespace TRSale.DataBase.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("UserId");
+                    b.HasIndex("CompanyId")
+                        .IsUnique();
+
+                    b.HasIndex("UserId")
+                        .IsUnique();
 
                     b.HasIndex("CompanyId", "UserId")
                         .IsUnique();
@@ -103,15 +107,15 @@ namespace TRSale.DataBase.Migrations
             modelBuilder.Entity("TRSale.Domain.Entites.Member", b =>
                 {
                     b.HasOne("TRSale.Domain.Entites.Company", "Company")
-                        .WithMany()
-                        .HasForeignKey("CompanyId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .WithOne()
+                        .HasForeignKey("TRSale.Domain.Entites.Member", "CompanyId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("TRSale.Domain.Entites.User", "User")
-                        .WithMany()
-                        .HasForeignKey("UserId")
-                        .OnDelete(DeleteBehavior.Cascade)
+                        .WithOne()
+                        .HasForeignKey("TRSale.Domain.Entites.Member", "UserId")
+                        .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.Navigation("Company");

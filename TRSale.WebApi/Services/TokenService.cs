@@ -15,8 +15,9 @@ namespace TRSale.WebApi.Services
         {
             var claimsIdentity = new ClaimsIdentity(new Claim[]
             {
-                new Claim(ClaimTypes.Name, id),
-                new Claim(ClaimTypes.Email, email)
+                new Claim(ClaimTypes.Name, name),
+                new Claim(ClaimTypes.Email, email),
+                new Claim("id", id),
             });
 
             return Token(claimsIdentity, DateTime.UtcNow.AddHours(2));

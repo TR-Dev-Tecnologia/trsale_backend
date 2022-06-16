@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Security.Principal;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
@@ -21,7 +22,10 @@ namespace TRSale.WebApi.Controllers
         {            
             var tsc = new TaskCompletionSource<IActionResult>();
             
-            cmd.UserId = Guid.Parse(User.Identity.Name);
+
+            var userId = HttpContext.User.Claims.Where(a => a.Type == "id").FirstOrDefault()?.Value;
+            if (userId != null)
+                cmd.UserId = Guid.Parse(userId);
             
             var result = service.Create(cmd);
             tsc.SetResult(new JsonResult(result)
