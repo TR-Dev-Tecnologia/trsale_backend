@@ -12,8 +12,8 @@ namespace TRSale.DataBase.Mappings
             entity.Property(a => a.CompanyId).HasColumnType("char(36)").IsRequired();  
             entity.HasIndex(a => new {a.CompanyId, a.UserId}).IsUnique();
 
-            entity.HasOne(b => b.Company).WithOne().OnDelete(DeleteBehavior.Restrict);
-            entity.HasOne(b => b.User).WithOne().OnDelete(DeleteBehavior.Restrict);
+            entity.HasOne(b => b.Company).WithMany().OnDelete(DeleteBehavior.Restrict);
+            entity.HasOne(b => b.User).WithMany().OnDelete(DeleteBehavior.Restrict);
             
         }
                 

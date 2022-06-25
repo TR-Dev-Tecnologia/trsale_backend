@@ -15,13 +15,20 @@ namespace TRSale.Domain.Services
     {
         private readonly IBaseRepository<Company> _companyRepository;        
         private readonly IBaseRepository<Member> _memberRepository;
+
+        private readonly ICompanyEnviroment _companyEnviroment;
         private readonly IUnitOfWork _uow;
 
-        public CompanyService(IBaseRepository<Company> companyRepository, IBaseRepository<Member> memberRepository, IUnitOfWork uow)
+        public CompanyService(
+            IBaseRepository<Company> companyRepository, 
+            IBaseRepository<Member> memberRepository,
+            ICompanyEnviroment companyEnviroment,
+            IUnitOfWork uow)
         {
             _companyRepository = companyRepository;
             _uow = uow;
             _memberRepository = memberRepository;
+            _companyEnviroment = companyEnviroment;
         }
 
         public GenericCommandResult Create(CreateCompanyCommand cmd)
@@ -34,13 +41,17 @@ namespace TRSale.Domain.Services
                 var member = new Member(company.Id, cmd.UserId);
                 _memberRepository.Create(member);
                 _uow.Commit();
+                _companyEnviroment.Create(company.Id);
                 return new GenericCommandResult(true, "Company Create with success");
             }
             catch(Exception)
             {
                 _uow.Rollback();
+                
                 throw;
             }
+
+            
         }
     }
 }

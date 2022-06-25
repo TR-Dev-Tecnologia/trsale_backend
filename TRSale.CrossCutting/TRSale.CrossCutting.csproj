@@ -4,6 +4,7 @@
     <ProjectReference Include="..\TRSale.Domain\TRSale.Domain.csproj" />
     <ProjectReference Include="..\TRSale.DataBase\TRSale.DataBase.csproj" />
     <ProjectReference Include="..\TRSale.Infra\TRSale.Infra.csproj" />
+    <ProjectReference Include="..\TRSale.DataBase.Company\TRSale.DataBase.Company.csproj" />
   </ItemGroup>
 
   <PropertyGroup>

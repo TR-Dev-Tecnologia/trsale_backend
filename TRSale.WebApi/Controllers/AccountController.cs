@@ -95,20 +95,6 @@ namespace TRSale.WebApi.Controllers
                 StatusCode = 200
             });
             return await tsc.Task;
-        }
-
-        [HttpGet]
-        [Authorize]  
-        public async Task<IActionResult> Get([FromServices] IUserService service)
-        {            
-            var tsc = new TaskCompletionSource<IActionResult>();
-            
-            tsc.SetResult(new JsonResult(new {TESTE = "OK"})
-            {
-                StatusCode = 200
-            });
-            return await tsc.Task;
-        }
-
+        }        
     }
 }

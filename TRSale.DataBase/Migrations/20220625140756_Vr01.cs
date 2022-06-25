@@ -75,12 +75,6 @@ namespace TRSale.DataBase.Migrations
                 .Annotation("MySql:CharSet", "utf8");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Member_CompanyId",
-                table: "Member",
-                column: "CompanyId",
-                unique: true);
-
-            migrationBuilder.CreateIndex(
                 name: "IX_Member_CompanyId_UserId",
                 table: "Member",
                 columns: new[] { "CompanyId", "UserId" },
@@ -89,8 +83,7 @@ namespace TRSale.DataBase.Migrations
             migrationBuilder.CreateIndex(
                 name: "IX_Member_UserId",
                 table: "Member",
-                column: "UserId",
-                unique: true);
+                column: "UserId");
 
             migrationBuilder.CreateIndex(
                 name: "UnqUserEmail",

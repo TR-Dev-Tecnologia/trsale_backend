@@ -11,7 +11,7 @@ using TRSale.DataBase;
 namespace TRSale.DataBase.Migrations
 {
     [DbContext(typeof(TRSaleContext))]
-    [Migration("20220616011424_Vr01")]
+    [Migration("20220625140756_Vr01")]
     partial class Vr01
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -52,11 +52,7 @@ namespace TRSale.DataBase.Migrations
 
                     b.HasKey("Id");
 
-                    b.HasIndex("CompanyId")
-                        .IsUnique();
-
-                    b.HasIndex("UserId")
-                        .IsUnique();
+                    b.HasIndex("UserId");
 
                     b.HasIndex("CompanyId", "UserId")
                         .IsUnique();
@@ -107,14 +103,14 @@ namespace TRSale.DataBase.Migrations
             modelBuilder.Entity("TRSale.Domain.Entites.Member", b =>
                 {
                     b.HasOne("TRSale.Domain.Entites.Company", "Company")
-                        .WithOne()
-                        .HasForeignKey("TRSale.Domain.Entites.Member", "CompanyId")
+                        .WithMany()
+                        .HasForeignKey("CompanyId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
                     b.HasOne("TRSale.Domain.Entites.User", "User")
-                        .WithOne()
-                        .HasForeignKey("TRSale.Domain.Entites.Member", "UserId")
+                        .WithMany()
+                        .HasForeignKey("UserId")
                         .OnDelete(DeleteBehavior.Restrict)
                         .IsRequired();
 
