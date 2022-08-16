@@ -24,9 +24,9 @@ namespace TRSale.Domain.Commands.Users
         public string Name { get; set; }
         public string Email { get; set; }
     }
-    public class LoginCommandResult : BaseCommandResult<AuthenticatedData>
+    public class LoginCommandResult : BaseCommandResult<AuthenticatedData?>
     {
-        public LoginCommandResult(bool success, string message) : base(success, message, new AuthenticatedData())
+        public LoginCommandResult(bool success, string message) : base(success, message, null)
         {
         }
 

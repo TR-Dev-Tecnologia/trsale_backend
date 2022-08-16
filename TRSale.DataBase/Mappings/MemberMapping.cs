@@ -14,7 +14,6 @@ namespace TRSale.DataBase.Mappings
 
             entity.HasOne(b => b.Company).WithMany().OnDelete(DeleteBehavior.Restrict);
             entity.HasOne(b => b.User).WithMany().OnDelete(DeleteBehavior.Restrict);
-            
         }
                 
         

@@ -39,8 +39,7 @@ namespace TRSale.WebApi.Controllers
                 Response.Cookies.Append("tk_TRSale", token, new CookieOptions() {
                     Domain = domainCookie,
                     HttpOnly = true, 
-                    SameSite = 
-                    SameSiteMode.Strict, 
+                    SameSite = SameSiteMode.Strict, 
                     Secure = true,
                     MaxAge = TimeSpan.FromHours(2) 
                 });
@@ -61,7 +60,7 @@ namespace TRSale.WebApi.Controllers
         {            
             var tsc = new TaskCompletionSource<IActionResult>();
             Response.Cookies.Delete("tk_TRSale");
-            tsc.SetResult(new JsonResult(new GenericCommandResult(true, "Successes"))
+            tsc.SetResult(new JsonResult(new GenericCommandResult(true, "Success"))
             {
                 StatusCode = 200
             });

@@ -13,14 +13,14 @@ namespace TRSale.Domain.Services
 {
     public class CompanyService : ICompanyService
     {
-        private readonly IBaseRepository<Company> _companyRepository;        
+        private readonly ICompanyRepository _companyRepository;        
         private readonly IBaseRepository<Member> _memberRepository;
 
         private readonly ICompanyEnviroment _companyEnviroment;
         private readonly IUnitOfWork _uow;
 
         public CompanyService(
-            IBaseRepository<Company> companyRepository, 
+            ICompanyRepository companyRepository, 
             IBaseRepository<Member> memberRepository,
             ICompanyEnviroment companyEnviroment,
             IUnitOfWork uow)

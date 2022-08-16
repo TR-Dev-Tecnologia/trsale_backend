@@ -25,7 +25,7 @@ namespace TRSale.CrossCutting
 
             services.AddScoped<IUnitOfWork, UnitOfWork>();
             services.AddScoped<IUserRepository, UserRepository>();
-            services.AddScoped<IBaseRepository<Company>, BaseRepository<Company>>();
+            services.AddScoped<ICompanyRepository, CompanyRepository>();
             services.AddScoped<IBaseRepository<Member>, BaseRepository<Member>>();
             services.AddScoped<ICompanyEnviroment, CompanyEnviroment>();
                  
