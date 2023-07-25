@@ -12,7 +12,7 @@ jobs:
       - name: Setup .NET Core SDK 6.0.x
         uses: actions/setup-dotnet@v1.7.2
         with:
-          dotnet-version: 6.0.x
+          dotnet-version: 6.0.412
       - name: Install dependencies
         run: dotnet restore
       - name: Build
