@@ -27,6 +27,34 @@ namespace TRSale.Domain.Tests.Entities
             await tsc.Task;
 
         }
+
+
+        [Fact]
+        public async Task UpatePassword()
+        {
+            var tsc = new TaskCompletionSource<bool>();
+
+            var newUser = new User("John Connor", "john@skynet.com", "123456");
+
+            Assert.True(newUser.Authenticate("123456"));
+
+            newUser.GenereatePasswordToken();
+            
+            Assert.Throws<ArgumentException>(() => newUser.UpdatePassword("TokenErrado", "888888"));
+            
+            newUser.UpdatePassword(newUser.PasswordToken!, "888888");
+
+            Assert.True(newUser.Authenticate("888888"));
+
+
+            newUser.GenereatePasswordToken(DateTime.Now.AddMinutes(-30));
+            Assert.Throws<ArgumentException>(() => newUser.UpdatePassword(newUser.PasswordToken!, "888888"));
+            
+
+            tsc.SetResult(true);
+            await tsc.Task;
+
+        }
         
     }
 }
