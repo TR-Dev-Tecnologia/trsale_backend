@@ -11,6 +11,19 @@ namespace TRSale.WebApi.Controllers
     [Route("[controller]")]
     public class AccountController : ControllerBase
     {
+        [HttpGet]        
+        [AllowAnonymous]
+        public async Task<IActionResult> Teste()
+        {            
+            var tsc = new TaskCompletionSource<IActionResult>();
+            
+            tsc.SetResult(new JsonResult(new {teste=true})
+            {
+                StatusCode = 200
+            });
+            return await tsc.Task;
+        }
+
         [HttpPost]
         [Route("SignUp")]
         [AllowAnonymous]
